@@ -1,7 +1,8 @@
 {
   "name": "hdepot",
   "version": "0.1.0",
-  "private": true,
+  "homepage": "https://www.findandexec.com/var/www/fne/sf/",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

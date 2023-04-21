@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/var/www/fne/sf/static/css/main.6f125b56.css",
+    "main.js": "/var/www/fne/sf/static/js/main.74991570.js",
+    "static/js/787.111843f1.chunk.js": "/var/www/fne/sf/static/js/787.111843f1.chunk.js",
+    "index.html": "/var/www/fne/sf/index.html",
+    "main.6f125b56.css.map": "/var/www/fne/sf/static/css/main.6f125b56.css.map",
+    "main.74991570.js.map": "/var/www/fne/sf/static/js/main.74991570.js.map",
+    "787.111843f1.chunk.js.map": "/var/www/fne/sf/static/js/787.111843f1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6f125b56.css",
+    "static/js/main.74991570.js"
+  ]
+}
