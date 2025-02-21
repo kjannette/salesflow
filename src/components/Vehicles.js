@@ -30,7 +30,6 @@ const Vehicles = () => {
   const handleIdInput = (e) => setVehId(e.target.value);
 
   const handleChange = (e) => {
-    console.log(e);
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -95,7 +94,6 @@ const Vehicles = () => {
   async function addData(e) {
     e.preventDefault();
     //format(e);
-    console.log("inpiuts", inputs);
     setSavedVehicles([...savedVehicles, inputs]);
     try {
       const docRef = await addDoc(collection(db, "hdepot"), inputs);
