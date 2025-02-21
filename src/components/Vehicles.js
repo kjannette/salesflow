@@ -30,6 +30,7 @@ const Vehicles = () => {
   const handleIdInput = (e) => setVehId(e.target.value);
 
   const handleChange = (e) => {
+    console.log(e);
     setInputs((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -51,7 +52,7 @@ const Vehicles = () => {
     e.preventDefault();
     const formatMiles = parseFloat(inputs.mileage.replace(/,/g, ""));
     const formatPrice = parseFloat(inputs.price.replace(/,/g, "") * 100);
-    inputs.mileage = formatMiles;
+    inputs.Mileage = formatMiles;
     inputs.price = formatPrice;
   };
 
@@ -93,7 +94,8 @@ const Vehicles = () => {
 
   async function addData(e) {
     e.preventDefault();
-    format(e);
+    //format(e);
+    console.log("inpiuts", inputs);
     setSavedVehicles([...savedVehicles, inputs]);
     try {
       const docRef = await addDoc(collection(db, "hdepot"), inputs);

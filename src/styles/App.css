@@ -127,7 +127,11 @@ body {
 }
 
 .deleteButtonBox {
-  margin: 15px 0px 20px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px auto;
 }
 
 .inputContainer {
