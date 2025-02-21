@@ -94,6 +94,7 @@ body {
   font-family: "Open Sans", sans-serif;
   cursor: pointer;
   padding: 7px 0px 26px 0px;
+  margin: 25px auto;
 }
 
 .button {

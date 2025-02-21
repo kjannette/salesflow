@@ -148,8 +148,10 @@ const Vehicles = () => {
           onClick={addData}
         />
         <div>
-          {savedVehicles && (
+          {savedVehicles.length > 0 ? (
             <h2 className="formHeader"> Your Saved Vehicles</h2>
+          ) : (
+            <></>
           )}
           {savedVehicles.map((el, i) => (
             <Vehicle
