@@ -18,14 +18,14 @@ const Vehicles = () => {
   const [vehId, setVehId] = useState();
   const [fetchedVeh, setfetchedVeh] = useState([]);
   const inputTypes = [
-    "make",
-    "model",
-    "trim",
-    "color",
-    "year",
-    "category",
-    "mileage",
-    "price",
+    "Make",
+    "Model",
+    "Trim",
+    "Color",
+    "Year",
+    "Category",
+    "Mileage",
+    "Price",
   ];
   const handleIdInput = (e) => setVehId(e.target.value);
 
@@ -66,7 +66,7 @@ const Vehicles = () => {
           });
           setSavedVehicles(dbVehs);
         } else {
-          console.log("Error fetching vehicle data from database");
+          console.log("Error fetching data from database");
         }
       });
     } catch (error) {
@@ -119,23 +119,25 @@ const Vehicles = () => {
       <div className="vehicles-container">
         <h2 className="formHeader">Add A Vehicle to Your Queue</h2>
         <div className="vehiclesRow">
-          <div className="vehiclesColumn">
-            {inputTypes.map((type, i) => (
-              <div className="inputContainer">
-                <TextInput
-                  key={`${type}${i}`}
-                  className="text-input"
-                  name={type}
-                  placeholder={type}
-                  value={inputs[type] || ""}
-                  onChange={
-                    type === "mileage" || type === "price"
-                      ? handleNumChange
-                      : handleChange
-                  }
-                />
-              </div>
-            ))}
+          <div className="vehBox">
+            <div className="vehiclesColumn">
+              {inputTypes.map((type, i) => (
+                <div className="inputContainer">
+                  <TextInput
+                    key={`${type}${i}`}
+                    className="text-input"
+                    name={type}
+                    placeholder={type}
+                    value={inputs[type] || ""}
+                    onChange={
+                      type === "mileage" || type === "price"
+                        ? handleNumChange
+                        : handleChange
+                    }
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <Button
@@ -166,7 +168,7 @@ const Vehicles = () => {
           ))}
         </div>
         <div className="getHeader">
-          <h2 className="formHeader">Get A Vehicle By Id</h2>
+          <h2 className="formHeader2">Get A Vehicle By Id</h2>
         </div>
         <div className="fetchBox">
           <div className="inputContainer">
