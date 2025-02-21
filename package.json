@@ -1,7 +1,7 @@
 {
   "name": "sales flow app",
   "version": "0.1.0",
-  "homepage": "https://www.findandexec.com/sf",
+  "homepage": "https://www.sjdev.co.com/sfapp",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
