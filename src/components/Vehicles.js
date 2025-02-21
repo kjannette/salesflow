@@ -183,7 +183,7 @@ const Vehicles = () => {
             />
           </div>
           <Button
-            className="auxButton"
+            className="auxButton2"
             labelText="Get Vehicle"
             variant="contained"
             color="primary"

@@ -84,7 +84,6 @@ body {
 }
 
 .auxButton {
-  margin-top: 8px;
   height: 30px;
   width: 125px;
   border: 1px solid #c0c8cf;
@@ -95,6 +94,19 @@ body {
   cursor: pointer;
   padding: 7px 0px 26px 0px;
   margin: 25px auto;
+}
+
+.auxButton2 {
+  height: 30px;
+  width: 125px;
+  border: 1px solid #c0c8cf;
+  border-radius: 6px;
+  background-color: white;
+  color: #0f1111;
+  font-family: "Open Sans", sans-serif;
+  cursor: pointer;
+  padding: 7px 0px 26px 0px;
+  margin: 15px auto 25px auto;
 }
 
 .button {
