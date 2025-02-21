@@ -1,4 +1,4 @@
-# Getting Started with the Shortly DB/App
+# Getting Started with the SF DB/App
 
 ## Initial Setup
 
