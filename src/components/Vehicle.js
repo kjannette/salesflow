@@ -52,7 +52,7 @@ const Vehicle = (props) => {
               {`$${formatNums(price / 100)}.00`}
             </p>
             <p className="veh-text">
-              <b>Id: </b>
+              <b>ISDM: </b>
               {id}
             </p>
           </div>

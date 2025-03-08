@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
+html {
+  height: 100%;
+}
+
 body {
+  margin: 0;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -16,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+
   padding: 0px 30px;
   margin: 5px 20px;
 }
@@ -64,10 +69,6 @@ body {
 
 .veh-text {
   margin: 4px 5px;
-}
-
-.formHeader {
-  letter-spacing: 0.08rem;
 }
 
 .formHeader2 {
@@ -158,7 +159,6 @@ body {
 }
 
 .navBarContainer {
-  width: 100%;
   height: 50px;
   padding: 15px 20px 0px 20px;
   border-bottom: 2px solid #a9a9a9;
@@ -197,6 +197,8 @@ body {
 
 @media only screen and (max-width: 460px) {
   .vehicles-container {
+    max-width: 400px;
+    padding: 0px 10px;
     margin: 2px auto;
   }
 
