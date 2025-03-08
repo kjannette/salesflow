@@ -20,12 +20,12 @@ const Vehicles = () => {
   const inputTypes = [
     "Make",
     "Model",
-    "Trim",
+    "Trim Package",
     "Color",
-    "Year",
+    "Prod Year",
     "Category",
     "Mileage",
-    "Price",
+    "Pre-QR Price",
   ];
   const handleIdInput = (e) => setVehId(e.target.value);
 
@@ -117,7 +117,7 @@ const Vehicles = () => {
   return (
     <>
       <div className="vehicles-container">
-        <h2 className="formHeader">Add A Vehicle to Your Queue</h2>
+        <h2 className="formHeader">Add Vehicle to Queue</h2>
         <div className="vehiclesRow">
           <div className="vehBox">
             <div className="vehiclesColumn">
@@ -170,14 +170,14 @@ const Vehicles = () => {
           ))}
         </div>
         <div className="getHeader">
-          <h2 className="formHeader2">Get A Vehicle By Id</h2>
+          <h2 className="formHeader2">Get Vehicle By ISDM</h2>
         </div>
         <div className="fetchBox">
           <div className="inputContainer">
             <TextInput
               className="text-input"
               name="vehId"
-              placeholder="Vehicle Id"
+              placeholder="Vehicle ISDM"
               value={vehId}
               onChange={handleIdInput}
             />
