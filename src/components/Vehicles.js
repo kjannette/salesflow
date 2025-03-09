@@ -65,6 +65,7 @@ const Vehicles = () => {
           const dbVehs = data.map((item, i) => {
             return Object.assign(item, { id: ids[i] });
           });
+          console.log("~~~~~~~~~~~~dbVehs", dbVehs);
           setSavedVehicles(dbVehs);
         } else {
           console.log("Error fetching data from database");
@@ -145,11 +146,14 @@ const Vehicles = () => {
       console.log(`Error deleteing vehicle from db: ${error}`);
     }
   }
-
+  console.log("~~~~~~~~~~~~~savedVehicles", savedVehicles);
+  savedVehicles.forEach((el) => {
+    console.log("~~~~~~~~~~~~~el", el);
+  });
   return (
     <>
       <div className="vehicles-container">
-        <h2 className="formHeader">Add Vehicle to Queue</h2>
+        <h2 className="formHeader">Add Vehicle To Queue</h2>
         <div className="vehiclesRow">
           <div className="vehBox">
             <div className="vehiclesColumn">
@@ -188,15 +192,15 @@ const Vehicles = () => {
           )}
           {savedVehicles.map((el, i) => (
             <Vehicle
-              key={`${el.model}${i}`}
-              make={el.make}
-              model={el.model}
-              trim={el.trim}
-              color={el.color}
-              category={el.category}
-              mileage={el.mileage}
-              price={el.price}
-              year={el.year}
+              key={`${el.Model}${i}`}
+              make={el.Make}
+              model={el.Model}
+              trim={el.Trim}
+              color={el.Color}
+              category={el.Category}
+              mileage={el.Mileage}
+              price={el.Price}
+              year={el.Year}
               id={el.id}
               onClick={deleteData}
             />
