@@ -11,6 +11,7 @@ import {
 import Vehicle from "./Vehicle";
 import TextInput from "../pageElements/textInput";
 import Button from "../pageElements/button";
+import warn from "../assets/warn.png";
 
 const Vehicles = () => {
   const [savedVehicles, setSavedVehicles] = useState([]);
@@ -27,6 +28,10 @@ const Vehicles = () => {
     "Category",
     "Mileage",
     "Pre-QRV-Price",
+    "Date Received",
+    "Purchase Order No.",
+    "Purchase Order Date",
+    "Finance Company Id",
   ];
   const handleIdInput = (e) => setVehId(e.target.value);
 
@@ -53,7 +58,7 @@ const Vehicles = () => {
     const formatMiles = parseFloat(inputs.mileage.replace(/,/g, ""));
     const formatPrice = parseFloat(inputs.price.replace(/,/g, "") * 100);
     inputs.Mileage = formatMiles;
-    //inputs.price = formatPrice;
+    inputs.Price = formatPrice;
   };
 
   useEffect(() => {
@@ -65,7 +70,7 @@ const Vehicles = () => {
           const dbVehs = data.map((item, i) => {
             return Object.assign(item, { id: ids[i] });
           });
-          console.log("~~~~~~~~~~~~dbVehs", dbVehs);
+
           setSavedVehicles(dbVehs);
         } else {
           console.log("Error fetching data from database");
@@ -102,6 +107,10 @@ const Vehicles = () => {
     const cat = inputs.Category;
     const miles = inputs.Mileage;
     const price = inputs["Pre-QRV-Price"];
+    const date = inputs["Date Received"];
+    const poNo = inputs["Purchase Order No."];
+    const poDate = inputs["Purchase Order Date"];
+    const finCoId = inputs["Finance Company Id"];
 
     if (
       !make ||
@@ -111,7 +120,11 @@ const Vehicles = () => {
       !year ||
       !cat ||
       !miles ||
-      !price
+      !price ||
+      !date ||
+      !poNo ||
+      !poDate ||
+      !finCoId
     ) {
       setAlert("Please fill out all fields");
       return false;
@@ -175,7 +188,18 @@ const Vehicles = () => {
               ))}
             </div>
           </div>
-          <div>{alert ? <div className="alert">{alert}</div> : <></>}</div>
+          <div>
+            {alert ? (
+              <div className="alert-container">
+                <div className="alert-items-container">
+                  <img src={warn} className="warnImg" alt="warning image" />
+                  <p>{alert}</p>
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
         <Button
           className="auxButton"
