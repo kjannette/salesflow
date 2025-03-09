@@ -121,7 +121,7 @@ const Vehicles = () => {
   return (
     <>
       <div className="vehicles-container">
-        <h2 className="formHeader">Add A Vehicle to Your Queue</h2>
+        <h2 className="formHeader">Add Vehicle To Queue</h2>
         <div className="vehiclesRow">
           <div className="vehBox">
             <div className="vehiclesColumn">

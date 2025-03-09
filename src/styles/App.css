@@ -149,11 +149,13 @@ body {
 }
 
 .inputContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0px auto;
   min-width: 250px;
   max-width: 250px;
-  margin-right: 25px;
   padding-bottom: 5px;
-  padding-right: 5px;
 }
 
 .navBarContainer {
