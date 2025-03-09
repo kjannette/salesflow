@@ -58,7 +58,7 @@ const Vehicles = () => {
     const formatMiles = parseFloat(inputs.mileage.replace(/,/g, ""));
     const formatPrice = parseFloat(inputs.price.replace(/,/g, "") * 100);
     inputs.Mileage = formatMiles;
-    inputs.Price = formatPrice;
+    inputs["Pre-QRV-Price"] = formatPrice;
   };
 
   useEffect(() => {
