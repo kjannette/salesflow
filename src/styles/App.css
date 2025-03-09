@@ -215,6 +215,9 @@ body {
     margin: 2px auto;
   }
 
+  .inputContainer {
+    width: 200px;
+  }
   .vehiclesColumn {
     height: 100%;
   }
