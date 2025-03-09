@@ -17,15 +17,16 @@ const Vehicles = () => {
   const [inputs, setInputs] = useState({});
   const [vehId, setVehId] = useState();
   const [fetchedVeh, setfetchedVeh] = useState([]);
+  const [alert, setAlert] = useState(false);
   const inputTypes = [
     "Make",
     "Model",
     "Trim",
     "Color",
-    "Year",
+    "Prod Year",
     "Category",
     "Mileage",
-    "Price",
+    "Pre-QRV-Price",
   ];
   const handleIdInput = (e) => setVehId(e.target.value);
 
@@ -52,7 +53,7 @@ const Vehicles = () => {
     const formatMiles = parseFloat(inputs.mileage.replace(/,/g, ""));
     const formatPrice = parseFloat(inputs.price.replace(/,/g, "") * 100);
     inputs.Mileage = formatMiles;
-    inputs.price = formatPrice;
+    //inputs.price = formatPrice;
   };
 
   useEffect(() => {
@@ -92,9 +93,40 @@ const Vehicles = () => {
     setVehId("");
   }
 
+  function validate() {
+    const make = inputs.Make;
+    const model = inputs.Model;
+    const trim = inputs.Trim;
+    const color = inputs.Color;
+    const year = inputs["Prod Year"];
+    const cat = inputs.Category;
+    const miles = inputs.Mileage;
+    const price = inputs["Pre-QRV-Price"];
+
+    if (
+      !make ||
+      !model ||
+      !trim ||
+      !color ||
+      !year ||
+      !cat ||
+      !miles ||
+      !price
+    ) {
+      setAlert("Please fill out all fields");
+      return false;
+    }
+    return true;
+  }
+
   async function addData(e) {
     e.preventDefault();
     //format(e);
+    const valid = validate();
+    if (!valid) {
+      return;
+    }
+    console.log("inputs~~~~~~~~~~", inputs);
     setSavedVehicles([...savedVehicles, inputs]);
     try {
       const docRef = await addDoc(collection(db, "hdepot"), inputs);
@@ -143,6 +175,7 @@ const Vehicles = () => {
               ))}
             </div>
           </div>
+          <div>{alert ? <div className="alert">{alert}</div> : <></>}</div>
         </div>
         <Button
           className="auxButton"
@@ -153,7 +186,7 @@ const Vehicles = () => {
         />
         <div>
           {savedVehicles.length > 0 ? (
-            <h2 className="formHeader"> Your Saved Vehicles</h2>
+            <h2 className="formHeader"> Your Vehicles</h2>
           ) : (
             <></>
           )}
@@ -174,14 +207,14 @@ const Vehicles = () => {
           ))}
         </div>
         <div className="getHeader">
-          <h2 className="formHeader2">Get A Vehicle By Id</h2>
+          <h2 className="formHeader2">Get Vehicle By ISDM</h2>
         </div>
         <div className="fetchBox">
           <div className="inputContainer">
             <TextInput
               className="text-input"
               name="vehId"
-              placeholder="Vehicle Id"
+              placeholder="Vehicle ISDM"
               value={vehId}
               onChange={handleIdInput}
             />
