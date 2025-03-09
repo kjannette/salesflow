@@ -39,7 +39,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 205px;
+  height: 300px;
   padding: 20px;
 }
 
@@ -64,7 +64,7 @@ body {
   border-radius: 6px;
   max-width: 535px;
   flex: 1 0 auto;
-  background-color: #f9f5ff;
+  background-color: #f8eefc;
 }
 
 .veh-text {
@@ -88,6 +88,32 @@ body {
   margin: 8px 0px;
   border: 1px solid #c0c8cf;
   border-radius: 4px;
+}
+
+.alert-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0px auto;
+  width: 420px;
+}
+
+.alert-items-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0px auto;
+  width: 400px;
+  font-size: 0.8rem;
+  color: red;
+}
+
+.warnImg {
+  height: 16px;
+  width: 16px;
+  margin: -3px 5px 0px 5px;
 }
 
 .alert {
@@ -175,7 +201,7 @@ body {
   height: 50px;
   padding: 15px 20px 0px 20px;
   border-bottom: 2px solid #a9a9a9;
-  background-color: #fcf6ff;
+  background-color: #f8eefc;
 }
 
 .navRow {
@@ -187,7 +213,7 @@ body {
 }
 
 .navSpan {
-  margin: 10px 10px;
+  margin: 10px 16px;
 }
 
 .navSpan:hover {
