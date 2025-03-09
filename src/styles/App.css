@@ -28,7 +28,7 @@ body {
 
 .vehiclesRow {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin: auto;
@@ -60,11 +60,10 @@ body {
 .vehBox {
   padding: 5px 5px 8px 8px;
   border: 1px solid #5d86a8;
-  background-color: #fff;
   border-radius: 6px;
   max-width: 535px;
   flex: 1 0 auto;
-  background-color: #fcf6ff;
+  background-color: #f9f5ff;
 }
 
 .veh-text {
@@ -85,26 +84,32 @@ body {
   border-radius: 4px;
 }
 
+.alert {
+  color: red;
+  font-size: 0.8rem;
+  padding-top: 8px;
+  margin: 8px 0px;
+}
+
 .auxButton {
   height: 30px;
   width: 125px;
   border: 1px solid #c0c8cf;
   border-radius: 6px;
-  background-color: white;
   color: #0f1111;
   font-family: "Open Sans", sans-serif;
   cursor: pointer;
   padding: 7px 0px 26px 0px;
   margin: 25px auto;
-  background-color: #fffef9;
+  background-color: #ffefef;
 }
 
 .auxButton2 {
   height: 30px;
   width: 125px;
-  border: 1px solid #c0c8cf;
+  border: 1px solid #8ac8ff;
   border-radius: 6px;
-  background-color: #fffef9;
+  background-color: #ffefef;
   color: #0f1111;
   font-family: "Open Sans", sans-serif;
   cursor: pointer;

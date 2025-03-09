@@ -17,15 +17,16 @@ const Vehicles = () => {
   const [inputs, setInputs] = useState({});
   const [vehId, setVehId] = useState();
   const [fetchedVeh, setfetchedVeh] = useState([]);
+  const [alert, setAlert] = useState(false);
   const inputTypes = [
     "Make",
     "Model",
-    "Trim Package",
+    "Trim",
     "Color",
     "Prod Year",
     "Category",
     "Mileage",
-    "Pre-QR Price",
+    "Pre-QRV-Price",
   ];
   const handleIdInput = (e) => setVehId(e.target.value);
 
@@ -52,7 +53,7 @@ const Vehicles = () => {
     const formatMiles = parseFloat(inputs.mileage.replace(/,/g, ""));
     const formatPrice = parseFloat(inputs.price.replace(/,/g, "") * 100);
     inputs.Mileage = formatMiles;
-    inputs.price = formatPrice;
+    //inputs.price = formatPrice;
   };
 
   useEffect(() => {
@@ -91,17 +92,32 @@ const Vehicles = () => {
     setVehId("");
   }
 
+  function validate() {
+    const make = inputs.Make;
+    const model = inputs.Model;
+    const trim = inputs.Trim;
+    const color = inputs.Color;
+    if (!make || !model || !trim || !color) {
+      setAlert("Please fill out all fields");
+      return false;
+    }
+    return true;
+  }
+
   async function addData(e) {
     e.preventDefault();
     //format(e);
-    setSavedVehicles([...savedVehicles, inputs]);
-    try {
-      const docRef = await addDoc(collection(db, "hdepot"), inputs);
-      inputs.id = docRef.id;
+    const valid = validate();
+    if (valid) {
       setSavedVehicles([...savedVehicles, inputs]);
-      setInputs({});
-    } catch (error) {
-      console.log(`Error saving vehicle to db: ${error}`);
+      try {
+        const docRef = await addDoc(collection(db, "hdepot"), inputs);
+        inputs.id = docRef.id;
+        setSavedVehicles([...savedVehicles, inputs]);
+        setInputs({});
+      } catch (error) {
+        console.log(`Error saving vehicle to db: ${error}`);
+      }
     }
   }
 
@@ -139,6 +155,7 @@ const Vehicles = () => {
               ))}
             </div>
           </div>
+          <div>{alert ? <div className="alert">{alert}</div> : <></>}</div>
         </div>
         <Button
           className="auxButton"
