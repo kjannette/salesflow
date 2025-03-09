@@ -4,10 +4,10 @@ const Navbar = (props) => {
   return (
     <div className="navBarContainer">
       <div className="navRow">
-        <span className="navSpan">Home</span>
+        <span className="navSpan">Your Dashboard</span>
         <span className="navSpan">Edit Profile</span>
         <span className="navSpan">Edit Settings</span>
-        <span className="navSpan">New Request</span>
+        <span className="navSpan">Change View</span>
       </div>
     </div>
   );
