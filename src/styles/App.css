@@ -45,12 +45,19 @@ body {
 
 .veh-col {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
 
 .veh-row {
   display: flex;
   flex-direction: row;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
 }
 
 .veh-row-price {

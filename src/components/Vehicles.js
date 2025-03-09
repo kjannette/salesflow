@@ -27,7 +27,7 @@ const Vehicles = () => {
     "Prod Year",
     "Category",
     "Mileage",
-    "Pre-QRV-Price",
+    "Price",
     "Date Received",
     "Purchase Order No.",
     "Purchase Order Date",
@@ -56,9 +56,9 @@ const Vehicles = () => {
   const format = (e) => {
     e.preventDefault();
     const formatMiles = parseFloat(inputs.mileage.replace(/,/g, ""));
-    const formatPrice = parseFloat(inputs.price.replace(/,/g, "") * 100);
+    const formatPrice = parseFloat(inputs["Price"].replace(/,/g, "") * 100);
     inputs.Mileage = formatMiles;
-    inputs["Pre-QRV-Price"] = formatPrice;
+    inputs["Price"] = formatPrice;
   };
 
   useEffect(() => {
@@ -88,7 +88,7 @@ const Vehicles = () => {
       if (docSnap.exists()) {
         const newcar = docSnap.data();
         newcar.id = docSnap._key.path.segments[1];
-        setfetchedVeh([newcar]);
+        setfetchedVeh(newcar);
       } else {
         console.log("DB item does not exist");
       }
@@ -106,7 +106,7 @@ const Vehicles = () => {
     const year = inputs["Prod Year"];
     const cat = inputs.Category;
     const miles = inputs.Mileage;
-    const price = inputs["Pre-QRV-Price"];
+    const price = inputs["Price"];
     const date = inputs["Date Received"];
     const poNo = inputs["Purchase Order No."];
     const poDate = inputs["Purchase Order Date"];
@@ -139,7 +139,7 @@ const Vehicles = () => {
     if (!valid) {
       return;
     }
-    console.log("inputs~~~~~~~~~~", inputs);
+
     setSavedVehicles([...savedVehicles, inputs]);
     try {
       const docRef = await addDoc(collection(db, "hdepot"), inputs);
@@ -159,10 +159,8 @@ const Vehicles = () => {
       console.log(`Error deleteing vehicle from db: ${error}`);
     }
   }
-  console.log("~~~~~~~~~~~~~savedVehicles", savedVehicles);
-  savedVehicles.forEach((el) => {
-    console.log("~~~~~~~~~~~~~el", el);
-  });
+  console.log("~~~~~~~~~~~~~~~fetchedVehicle", fetchedVeh);
+
   return (
     <>
       <div className="vehicles-container">
@@ -252,22 +250,22 @@ const Vehicles = () => {
           />
         </div>
         <div>
-          {fetchedVeh &&
-            fetchedVeh.map((el, i) => (
-              <Vehicle
-                make={el.make}
-                model={el.model}
-                key={`${el.model}${i}`}
-                trim={el.trim}
-                color={el.color}
-                year={el.year}
-                category={el.category}
-                mileage={el.mileage}
-                price={el.price}
-                id={el.id}
-                onClick={deleteData}
-              />
-            ))}
+          {fetchedVeh ? (
+            <Vehicle
+              make={fetchedVeh.Make}
+              model={fetchedVeh.Model}
+              trim={fetchedVeh.Trim}
+              color={fetchedVeh.Color}
+              year={fetchedVeh.Year}
+              category={fetchedVeh.Category}
+              mileage={fetchedVeh.Mileage}
+              price={fetchedVeh.Price}
+              id={fetchedVeh.id}
+              onClick={deleteData}
+            />
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </>

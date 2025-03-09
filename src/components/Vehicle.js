@@ -48,8 +48,7 @@ const Vehicle = (props) => {
         <div className="veh-col">
           <div className="veh-row-price">
             <p className="veh-text">
-              <b>Price: </b>
-              {`$${formatNums(price / 100)}.00`}
+              <b>PVR Price: </b>${formatNums(price)}
             </p>
             <p className="veh-text">
               <b>ISDM: </b>
