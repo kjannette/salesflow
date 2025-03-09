@@ -159,7 +159,6 @@ const Vehicles = () => {
       console.log(`Error deleteing vehicle from db: ${error}`);
     }
   }
-  console.log("~~~~~~~~~~~~~~~fetchedVehicle", fetchedVeh);
 
   return (
     <>
