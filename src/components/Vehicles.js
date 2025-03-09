@@ -97,7 +97,21 @@ const Vehicles = () => {
     const model = inputs.Model;
     const trim = inputs.Trim;
     const color = inputs.Color;
-    if (!make || !model || !trim || !color) {
+    const year = inputs["Prod Year"];
+    const cat = inputs.Category;
+    const miles = inputs.Mileage;
+    const price = inputs["Pre-QRV-Price"];
+
+    if (
+      !make ||
+      !model ||
+      !trim ||
+      !color ||
+      !year ||
+      !cat ||
+      !miles ||
+      !price
+    ) {
       setAlert("Please fill out all fields");
       return false;
     }
@@ -108,16 +122,18 @@ const Vehicles = () => {
     e.preventDefault();
     //format(e);
     const valid = validate();
-    if (valid) {
+    if (!valid) {
+      return;
+    }
+    console.log("inputs~~~~~~~~~~", inputs);
+    setSavedVehicles([...savedVehicles, inputs]);
+    try {
+      const docRef = await addDoc(collection(db, "hdepot"), inputs);
+      inputs.id = docRef.id;
       setSavedVehicles([...savedVehicles, inputs]);
-      try {
-        const docRef = await addDoc(collection(db, "hdepot"), inputs);
-        inputs.id = docRef.id;
-        setSavedVehicles([...savedVehicles, inputs]);
-        setInputs({});
-      } catch (error) {
-        console.log(`Error saving vehicle to db: ${error}`);
-      }
+      setInputs({});
+    } catch (error) {
+      console.log(`Error saving vehicle to db: ${error}`);
     }
   }
 
